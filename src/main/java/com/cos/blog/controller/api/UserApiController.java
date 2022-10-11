@@ -22,6 +22,6 @@ public class UserApiController {
 		System.out.println("UserApiController was called");
 		user.setRole(RoleType.USER);
 		int result = userService.save(user);
-		return new ResponseDto<Integer>(HttpStatus.OK, result);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
 	}
 }
