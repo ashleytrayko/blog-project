@@ -3,6 +3,7 @@ let index = {
 		$("#btn-save").on("click", ()=>{ //this를 바인딩하기 위해서 ()=> 를 사용
 			this.save();
 		});
+		
 	},
 	
 	save:function(){
@@ -18,17 +19,18 @@ let index = {
 		$.ajax({
 			//회원가입 수행 요청 
 			type:"POST",
-			url:"/blog/api/user",
+			url:"/auth/joinProc",
 			data: JSON.stringify(data),
 			contentType:"application/json; charset=utf-8", //body데이터가 어떤 타입인지(MIME)
 			dataType:"json",
 		}).done(function(response){
 			alert("회원가입이 완료되었습니다.");
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 
-	}
+	},
+	
 }
 
 index.init();
