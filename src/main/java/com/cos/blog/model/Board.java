@@ -38,7 +38,6 @@ public class Board {
 	@Lob // 대용량 데이
 	private String content;
 	
-	@ColumnDefault("0")
 	private int count;
 
 	@ManyToOne(fetch = FetchType.EAGER) // Many = Board, User = One
