@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 // static이하에 있는 /js/**, /css/**, /image/** 
 
 @Controller
-public class UesrController {
+public class UserController {
 	
 	@GetMapping("/auth/joinForm")
 	public String joinForm() {
@@ -18,5 +18,10 @@ public class UesrController {
 	@GetMapping("/auth/loginForm")
 	public String loginForm() {
 		return "user/loginForm";
+	}
+	
+	@GetMapping("/user/updateForm")
+	public String updateForm() {
+		return "user/updateForm";
 	}
 }
