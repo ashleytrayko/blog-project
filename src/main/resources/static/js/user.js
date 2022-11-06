@@ -3,7 +3,7 @@ let index = {
 		$("#btn-save").on("click", ()=>{ //this를 바인딩하기 위해서 ()=> 를 사용
 			this.save();
 		});
-		$("#btn-update").on("clck", ()=>{
+		$("#btn-update").on("click", ()=>{
 			this.update();
 		});	
 	},
@@ -36,6 +36,7 @@ let index = {
 	update:function(){
 		let data = {
 			id: $("#id").val(),
+			username: $("#username").val(),
 			password: $("#password").val(),
 			email: $("#email").val()
 			
