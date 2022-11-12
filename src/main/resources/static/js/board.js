@@ -9,6 +9,9 @@ let index = {
 		$("#btn-update").on("click", ()=>{ //this를 바인딩하기 위해서 ()=> 를 사용
 			this.update();
 		});
+		$("#btn-reply-save").on("click", ()=>{ //this를 바인딩하기 위해서 ()=> 를 사용
+			this.replySave();
+		});
 	},
 	
 	save:function(){
@@ -63,6 +66,28 @@ let index = {
 		}).done(function(response){
 			alert("글수정이 완료되었습니다.");
 			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
+	replySave:function(){
+		let data = {
+			userId: $("#userId").val(),
+			boardId: $("#boardId").val(),
+			content: $("#reply-content").val()
+			
+		};
+		
+		$.ajax({
+			type:"POST",
+			url:`/api/board/${data.boardId}/reply`,
+			data: JSON.stringify(data),
+			contentType:"application/json; charset=utf-8", //body데이터가 어떤 타입인지(MIME)
+			dataType:"json",
+		}).done(function(response){
+			alert("댓글작성이 완료되었습니다.");
+			location.href= `/board/${data.boardId}`;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 
