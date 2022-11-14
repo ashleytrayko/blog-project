@@ -89,5 +89,8 @@ public class BoardService {
 		reply.update(user, board, replySaveRequestDto.getContent());
 		
 		replyRepository.save(reply);
+		
+		// 네이밍 쿼리
+		//replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
 	}
 }
