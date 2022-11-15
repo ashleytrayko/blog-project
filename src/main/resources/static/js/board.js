@@ -92,6 +92,20 @@ let index = {
 			alert(JSON.stringify(error));
 		}); 
 	},
+	
+	replyDelete:function(boardId, replyId){
+		$.ajax({
+			type:"DELETE",
+			url:`/api/board/${boardId}/${replyId}`,
+			data: JSON.stringify(data),
+			dataType:"json",
+		}).done(function(response){
+			alert("댓글삭제 성공.");
+			location.href= `/board/${data.boardId}`;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
 }
 
 index.init();

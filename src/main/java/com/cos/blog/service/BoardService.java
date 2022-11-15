@@ -93,4 +93,9 @@ public class BoardService {
 		// 네이밍 쿼리
 		//replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
 	}
+	
+	@Transactional
+	public void deleteReply(int replyId) {
+		replyRepository.deleteById(replyId);
+	}
 }

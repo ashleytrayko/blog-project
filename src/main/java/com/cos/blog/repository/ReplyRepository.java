@@ -12,6 +12,6 @@ import com.cos.blog.model.Reply;
 public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 	
 	@Modifying
-	@Query(value="INSERT INTO reply(userId, boardId, content, createDate) VALUES(?1,?2,?3,now())")
+	@Query(value="INSERT INTO reply(userId, boardId, content, createDate) VALUES(?1, ?2, ?3, now())")
 	int mSave(int userId, int boardId, String content );
 }
